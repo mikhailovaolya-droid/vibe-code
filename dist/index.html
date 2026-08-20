@@ -3,17 +3,17 @@
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>AdminLTE v4 | Dashboard</title>
+    <title>Мои финансы | Обзор портфеля</title>
 
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#FAF6EF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#3A3229" media="(prefers-color-scheme: dark)" />
     <!--end::Accessibility Meta Tags-->
 
     <!--begin::Primary Meta Tags-->
-    <meta name="title" content="AdminLTE v4 | Dashboard" />
+    <meta name="title" content="Мои финансы | Обзор портфеля" />
     <meta name="author" content="ColorlibHQ" />
     <meta
       name="description"
@@ -77,6 +77,189 @@
       integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
       crossorigin="anonymous"
     />
+
+    <!--begin::Custom "Мои финансы" theme-->
+    <style>
+      :root {
+        --mf-bg: #faf6ef;
+        --mf-text: #3a3229;
+        --mf-sage: #5c6b4b;
+        --mf-amber: #c08a3e;
+        --mf-amber-light: #d9a860;
+        --mf-terracotta: #a8503f;
+        --mf-border: #e4d9c3;
+        --mf-surface: #ffffff;
+      }
+
+      /* Base */
+      body {
+        background-color: var(--mf-bg);
+        color: var(--mf-text);
+      }
+
+      .app-main,
+      .app-content,
+      .app-content-header {
+        background-color: var(--mf-bg);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .card-title {
+        color: var(--mf-text);
+      }
+
+      /* Header/navbar */
+      .app-header.navbar {
+        background-color: var(--mf-bg) !important;
+        border-bottom: 1px solid var(--mf-border);
+      }
+
+      .app-header .nav-link {
+        color: var(--mf-text) !important;
+      }
+
+      /* Sidebar - light, brand palette instead of default dark */
+      .app-sidebar {
+        background-color: var(--mf-bg) !important;
+        border-right: 1px solid var(--mf-border);
+      }
+
+      .app-sidebar[data-bs-theme='dark'] {
+        --bs-body-bg: var(--mf-bg);
+        --bs-body-color: var(--mf-text);
+        --bs-secondary-bg: #f3ecdd;
+        --bs-border-color: var(--mf-border);
+      }
+
+      .sidebar-brand {
+        border-bottom: 1px solid var(--mf-border);
+      }
+
+      .sidebar-brand .brand-text {
+        color: var(--mf-text);
+        font-weight: 600;
+      }
+
+      .app-sidebar .nav-sidebar > .nav-item > .nav-link,
+      .app-sidebar .nav-treeview .nav-link {
+        color: var(--mf-text);
+        border-radius: 8px;
+        margin: 2px 8px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .app-sidebar .nav-link:hover {
+        background-color: rgba(192, 138, 62, 0.15);
+        color: var(--mf-amber);
+      }
+
+      .app-sidebar .nav-link.active {
+        background-color: var(--mf-sage) !important;
+        color: var(--mf-bg) !important;
+      }
+
+      .app-sidebar .nav-link.active .nav-icon,
+      .app-sidebar .nav-link.active .nav-arrow {
+        color: var(--mf-bg) !important;
+      }
+
+      /* Only keep the 5 client-portal sections visible in the sidebar */
+      #navigation > li:nth-child(n + 6) {
+        display: none;
+      }
+
+      /* Cards & small boxes: rounded corners, soft shadow, roomier padding, hover */
+      .card,
+      .small-box {
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(58, 50, 41, 0.08);
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+        background-color: var(--mf-surface);
+      }
+
+      .card:hover,
+      .small-box:hover {
+        box-shadow: 0 10px 24px rgba(58, 50, 41, 0.16);
+        transform: translateY(-3px);
+      }
+
+      .card-body {
+        padding: 1.5rem;
+      }
+
+      .small-box .inner {
+        padding: 1.25rem 1.5rem;
+      }
+
+      .card-header {
+        background-color: transparent;
+        border-bottom: 1px solid var(--mf-border);
+        border-radius: 16px 16px 0 0;
+      }
+
+      /* Recolor Bootstrap contextual utilities to the brand accents */
+      .text-bg-primary {
+        background-color: var(--mf-amber) !important;
+        color: var(--mf-bg) !important;
+      }
+
+      .text-bg-success {
+        background-color: var(--mf-sage) !important;
+        color: var(--mf-bg) !important;
+      }
+
+      .text-bg-warning {
+        background-color: var(--mf-amber-light) !important;
+        color: var(--mf-text) !important;
+      }
+
+      .text-bg-danger {
+        background-color: var(--mf-terracotta) !important;
+        color: var(--mf-bg) !important;
+      }
+
+      .bg-primary {
+        background-color: var(--mf-amber) !important;
+      }
+
+      .btn-primary {
+        background-color: var(--mf-amber);
+        border-color: var(--mf-amber);
+      }
+
+      .btn-primary:hover,
+      .btn-primary:focus {
+        background-color: #a8752f;
+        border-color: #a8752f;
+      }
+
+      .btn-outline-danger {
+        color: var(--mf-terracotta);
+        border-color: var(--mf-terracotta);
+      }
+
+      .btn-outline-danger:hover {
+        background-color: var(--mf-terracotta);
+        border-color: var(--mf-terracotta);
+      }
+
+      .link-light:hover {
+        color: var(--mf-bg) !important;
+      }
+
+      .app-footer {
+        background-color: var(--mf-bg);
+        border-top: 1px solid var(--mf-border);
+        color: var(--mf-text);
+      }
+    </style>
+    <!--end::Custom "Мои финансы" theme-->
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -95,10 +278,10 @@
               </a>
             </li>
             <li class="nav-item d-none d-md-block">
-              <a href="#" class="nav-link">Home</a>
+              <a href="#" class="nav-link">Главная</a>
             </li>
             <li class="nav-item d-none d-md-block">
-              <a href="#" class="nav-link">Contact</a>
+              <a href="#" class="nav-link">Контакты</a>
             </li>
           </ul>
           <!--end::Start Navbar Links-->
@@ -137,9 +320,9 @@
                           ><i class="bi bi-star-fill"></i
                         ></span>
                       </h3>
-                      <p class="fs-7">Call me whenever you can...</p>
+                      <p class="fs-7">Позвоните, когда будет время...</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                        <i class="bi bi-clock-fill me-1"></i> 4 часа назад
                       </p>
                     </div>
                   </div>
@@ -163,9 +346,9 @@
                           <i class="bi bi-star-fill"></i>
                         </span>
                       </h3>
-                      <p class="fs-7">I got your message bro</p>
+                      <p class="fs-7">Получил ваше сообщение</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                        <i class="bi bi-clock-fill me-1"></i> 4 часа назад
                       </p>
                     </div>
                   </div>
@@ -189,16 +372,16 @@
                           <i class="bi bi-star-fill"></i>
                         </span>
                       </h3>
-                      <p class="fs-7">The subject goes here</p>
+                      <p class="fs-7">Тема сообщения</p>
                       <p class="fs-7 text-secondary">
-                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                        <i class="bi bi-clock-fill me-1"></i> 4 часа назад
                       </p>
                     </div>
                   </div>
                   <!--end::Message-->
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                <a href="#" class="dropdown-item dropdown-footer">Все сообщения</a>
               </div>
             </li>
             <!--end::Messages Dropdown Menu-->
@@ -210,24 +393,24 @@
                 <span class="navbar-badge badge text-bg-warning">15</span>
               </a>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
-                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <span class="dropdown-item dropdown-header">15 уведомлений</span>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-envelope me-2"></i> 4 new messages
-                  <span class="float-end text-secondary fs-7">3 mins</span>
+                  <i class="bi bi-envelope me-2"></i> 4 новых сообщения
+                  <span class="float-end text-secondary fs-7">3 мин</span>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
-                  <span class="float-end text-secondary fs-7">12 hours</span>
+                  <i class="bi bi-people-fill me-2"></i> 8 новых заявок
+                  <span class="float-end text-secondary fs-7">12 часов</span>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
-                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
-                  <span class="float-end text-secondary fs-7">2 days</span>
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 новых отчёта
+                  <span class="float-end text-secondary fs-7">2 дня</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
+                <a href="#" class="dropdown-item dropdown-footer"> Все уведомления </a>
               </div>
             </li>
             <!--end::Notifications Dropdown Menu-->
@@ -249,7 +432,7 @@
                   class="user-image rounded-circle shadow"
                   alt="User Image"
                 />
-                <span class="d-none d-md-inline">AI HERO 2</span>
+                <span class="d-none d-md-inline">Клиент</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                 <!--begin::User Image-->
@@ -260,8 +443,8 @@
                     alt="User Image"
                   />
                   <p>
-                    AI HERO 2 - Web Developer
-                    <small>Member since Nov. 2023</small>
+                    Клиент
+                    <small>С нами с ноября 2023</small>
                   </p>
                 </li>
                 <!--end::User Image-->
@@ -270,13 +453,13 @@
                   <!--begin::Row-->
                   <div class="row">
                     <div class="col-4 text-center">
-                      <a href="#">Followers</a>
+                      <a href="#">Подписки</a>
                     </div>
                     <div class="col-4 text-center">
-                      <a href="#">Sales</a>
+                      <a href="#">Сделки</a>
                     </div>
                     <div class="col-4 text-center">
-                      <a href="#">Friends</a>
+                      <a href="#">Контакты</a>
                     </div>
                   </div>
                   <!--end::Row-->
@@ -284,8 +467,8 @@
                 <!--end::Menu Body-->
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
-                  <a href="#" class="btn btn-outline-secondary">Profile</a>
-                  <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
+                  <a href="#" class="btn btn-outline-secondary">Профиль</a>
+                  <a href="#" class="btn btn-outline-danger float-end">Выйти</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -311,7 +494,7 @@
             />
             <!--end::Brand Image-->
             <!--begin::Brand Text-->
-            <span class="brand-text fw-light">AdminLTE 4</span>
+            <span class="brand-text fw-light">Мои финансы</span>
             <!--end::Brand Text-->
           </a>
           <!--end::Brand Link-->
@@ -333,7 +516,7 @@
                 <a href="#" class="nav-link active">
                   <i class="nav-icon bi bi-speedometer"></i>
                   <p>
-                    Dashboard
+                    Портфель
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -341,19 +524,19 @@
                   <li class="nav-item">
                     <a href="./index.html" class="nav-link active">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v1</p>
+                      <p>Обзор портфеля</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./index2.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v2</p>
+                      <p>Активы и доходность</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./index3.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v3</p>
+                      <p>История операций</p>
                     </a>
                   </li>
                 </ul>
@@ -361,14 +544,14 @@
               <li class="nav-item">
                 <a href="./generate/theme.html" class="nav-link">
                   <i class="nav-icon bi bi-palette"></i>
-                  <p>Theme Generate</p>
+                  <p>Финансовые цели</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-box-seam-fill"></i>
                   <p>
-                    Widgets
+                    Взносы
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -376,19 +559,19 @@
                   <li class="nav-item">
                     <a href="./widgets/small-box.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Small Box</p>
+                      <p>Последний взнос</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./widgets/info-box.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>info Box</p>
+                      <p>Сводка взносов</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./widgets/cards.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Cards</p>
+                      <p>История взносов</p>
                     </a>
                   </li>
                 </ul>
@@ -397,7 +580,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-clipboard-fill"></i>
                   <p>
-                    Layout Options
+                    Отчёты
                     <span class="nav-badge badge text-bg-secondary me-3">6</span>
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
@@ -406,61 +589,61 @@
                   <li class="nav-item">
                     <a href="./layout/unfixed-sidebar.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Default Sidebar</p>
+                      <p>Итоговый отчёт</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/fixed-sidebar.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Sidebar</p>
+                      <p>Отчёт за месяц</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/fixed-header.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Header</p>
+                      <p>Отчёт за квартал</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/fixed-footer.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Footer</p>
+                      <p>Отчёт за год</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/fixed-complete.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Fixed Complete</p>
+                      <p>Полный отчёт</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/layout-custom-area.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Layout <small>+ Custom Area </small></p>
+                      <p>Отчёт <small>с комментариями</small></p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/sidebar-mini.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini</p>
+                      <p>Краткий отчёт</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/collapsed-sidebar.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini <small>+ Collapsed</small></p>
+                      <p>Краткий отчёт <small>+ архив</small></p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/logo-switch.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Sidebar Mini <small>+ Logo Switch</small></p>
+                      <p>Именной отчёт <small>с брендингом</small></p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./layout/layout-rtl.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Layout RTL</p>
+                      <p>Отчёт (архив)</p>
                     </a>
                   </li>
                 </ul>
@@ -469,7 +652,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-tree-fill"></i>
                   <p>
-                    UI Elements
+                    Настройки
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
@@ -477,19 +660,19 @@
                   <li class="nav-item">
                     <a href="./UI/general.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>General</p>
+                      <p>Профиль</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./UI/icons.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Icons</p>
+                      <p>Уведомления</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="./UI/timeline.html" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Timeline</p>
+                      <p>История действий</p>
                     </a>
                   </li>
                 </ul>
@@ -779,12 +962,12 @@
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6">
-                <h3 class="mb-0">Dashboard</h3>
+                <h3 class="mb-0">Обзор портфеля</h3>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                  <li class="breadcrumb-item"><a href="#">Главная</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Обзор портфеля</li>
                 </ol>
               </div>
             </div>
@@ -804,9 +987,9 @@
                 <!--begin::Small Box Widget 1-->
                 <div class="small-box text-bg-primary">
                   <div class="inner">
-                    <h3>150</h3>
+                    <h3>2 450 000 ₽</h3>
 
-                    <p>New Orders</p>
+                    <p>Стоимость портфеля</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -833,9 +1016,9 @@
                 <!--begin::Small Box Widget 2-->
                 <div class="small-box text-bg-success">
                   <div class="inner">
-                    <h3>53<sup class="fs-5">%</sup></h3>
+                    <h3>12,4<sup class="fs-5">%</sup></h3>
 
-                    <p>Bounce Rate</p>
+                    <p>Доходность за год</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -862,9 +1045,9 @@
                 <!--begin::Small Box Widget 3-->
                 <div class="small-box text-bg-warning">
                   <div class="inner">
-                    <h3>44</h3>
+                    <h3>4</h3>
 
-                    <p>User Registrations</p>
+                    <p>Взносов за месяц</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -891,9 +1074,9 @@
                 <!--begin::Small Box Widget 4-->
                 <div class="small-box text-bg-danger">
                   <div class="inner">
-                    <h3>65</h3>
+                    <h3>18<sup class="fs-5">%</sup></h3>
 
-                    <p>Unique Visitors</p>
+                    <p>До цели осталось</p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -931,7 +1114,7 @@
               <div class="col-lg-7 connectedSortable">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h3 class="card-title">Sales Value</h3>
+                    <h3 class="card-title">Динамика стоимости портфеля</h3>
                   </div>
 
                   <div class="card-body">
@@ -943,10 +1126,10 @@
                 <!-- DIRECT CHAT -->
                 <div class="card direct-chat direct-chat-primary mb-4">
                   <div class="card-header">
-                    <h3 class="card-title">Direct Chat</h3>
+                    <h3 class="card-title">Чат с консультантом</h3>
 
                     <div class="card-tools">
-                      <span title="3 New Messages" class="badge text-bg-primary"> 3 </span>
+                      <span title="3 новых сообщения" class="badge text-bg-primary"> 3 </span>
                       <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
                         <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
                         <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
@@ -971,8 +1154,8 @@
                       <!-- Message. Default to the start -->
                       <div class="direct-chat-msg">
                         <div class="direct-chat-infos clearfix">
-                          <span class="direct-chat-name float-start"> AI HERO 2 </span>
-                          <span class="direct-chat-timestamp float-end"> 23 Jan 2:00 pm </span>
+                          <span class="direct-chat-name float-start"> Клиент </span>
+                          <span class="direct-chat-timestamp float-end"> 23 янв, 14:00 </span>
                         </div>
                         <!-- /.direct-chat-infos -->
                         <img
@@ -982,7 +1165,7 @@
                         />
                         <!-- /.direct-chat-img -->
                         <div class="direct-chat-text">
-                          Is this template really for free? That's unbelievable!
+                          Когда ожидать следующий платёж по цели?
                         </div>
                         <!-- /.direct-chat-text -->
                       </div>
@@ -991,8 +1174,8 @@
                       <!-- Message to the end -->
                       <div class="direct-chat-msg end">
                         <div class="direct-chat-infos clearfix">
-                          <span class="direct-chat-name float-end"> Sarah Bullock </span>
-                          <span class="direct-chat-timestamp float-start"> 23 Jan 2:05 pm </span>
+                          <span class="direct-chat-name float-end"> Ольга Михайлова </span>
+                          <span class="direct-chat-timestamp float-start"> 23 янв, 14:05 </span>
                         </div>
                         <!-- /.direct-chat-infos -->
                         <img
@@ -1001,7 +1184,7 @@
                           alt="message user image"
                         />
                         <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">You better believe it!</div>
+                        <div class="direct-chat-text">Совсем скоро, примерно через 2 месяца.</div>
                         <!-- /.direct-chat-text -->
                       </div>
                       <!-- /.direct-chat-msg -->
@@ -1009,8 +1192,8 @@
                       <!-- Message. Default to the start -->
                       <div class="direct-chat-msg">
                         <div class="direct-chat-infos clearfix">
-                          <span class="direct-chat-name float-start"> AI HERO 2 </span>
-                          <span class="direct-chat-timestamp float-end"> 23 Jan 5:37 pm </span>
+                          <span class="direct-chat-name float-start"> Клиент </span>
+                          <span class="direct-chat-timestamp float-end"> 23 янв, 17:37 </span>
                         </div>
                         <!-- /.direct-chat-infos -->
                         <img
@@ -1020,7 +1203,7 @@
                         />
                         <!-- /.direct-chat-img -->
                         <div class="direct-chat-text">
-                          Working with AdminLTE on a great new app! Wanna join?
+                          Хочу пересмотреть распределение активов, поможете?
                         </div>
                         <!-- /.direct-chat-text -->
                       </div>
@@ -1029,8 +1212,8 @@
                       <!-- Message to the end -->
                       <div class="direct-chat-msg end">
                         <div class="direct-chat-infos clearfix">
-                          <span class="direct-chat-name float-end"> Sarah Bullock </span>
-                          <span class="direct-chat-timestamp float-start"> 23 Jan 6:10 pm </span>
+                          <span class="direct-chat-name float-end"> Ольга Михайлова </span>
+                          <span class="direct-chat-timestamp float-start"> 23 янв, 18:10 </span>
                         </div>
                         <!-- /.direct-chat-infos -->
                         <img
@@ -1039,7 +1222,7 @@
                           alt="message user image"
                         />
                         <!-- /.direct-chat-img -->
-                        <div class="direct-chat-text">I would love to.</div>
+                        <div class="direct-chat-text">Конечно, обсудим на следующей неделе.</div>
                         <!-- /.direct-chat-text -->
                       </div>
                       <!-- /.direct-chat-msg -->
@@ -1175,11 +1358,11 @@
                         <input
                           type="text"
                           name="message"
-                          placeholder="Type Message ..."
+                          placeholder="Введите сообщение..."
                           class="form-control"
                         />
                         <span class="input-group-append">
-                          <button type="button" class="btn btn-primary">Send</button>
+                          <button type="button" class="btn btn-primary">Отправить</button>
                         </span>
                       </div>
                     </form>
@@ -1194,7 +1377,7 @@
               <div class="col-lg-5 connectedSortable">
                 <div class="card text-white bg-primary bg-gradient border-primary mb-4">
                   <div class="card-header border-0">
-                    <h3 class="card-title">Sales Value</h3>
+                    <h3 class="card-title">География активов</h3>
                     <div class="card-tools">
                       <button
                         type="button"
@@ -1214,15 +1397,15 @@
                     <div class="row">
                       <div class="col-4 text-center">
                         <div id="sparkline-1" class="text-dark"></div>
-                        <div class="text-white">Visitors</div>
+                        <div class="text-white">Акции</div>
                       </div>
                       <div class="col-4 text-center">
                         <div id="sparkline-2" class="text-dark"></div>
-                        <div class="text-white">Online</div>
+                        <div class="text-white">Облигации</div>
                       </div>
                       <div class="col-4 text-center">
                         <div id="sparkline-3" class="text-dark"></div>
-                        <div class="text-white">Sales</div>
+                        <div class="text-white">Наличные</div>
                       </div>
                     </div>
                     <!--end::Row-->
@@ -1340,11 +1523,11 @@
       const sales_chart_options = {
         series: [
           {
-            name: 'Digital Goods',
+            name: 'Акции',
             data: [28, 48, 40, 19, 86, 27, 90],
           },
           {
-            name: 'Electronics',
+            name: 'Облигации',
             data: [65, 59, 80, 81, 56, 55, 40],
           },
         ],
@@ -1358,7 +1541,7 @@
         legend: {
           show: false,
         },
-        colors: ['#0d6efd', '#20c997'],
+        colors: ['#5c6b4b', '#c08a3e'],
         dataLabels: {
           enabled: false,
         },
@@ -1409,6 +1592,10 @@
       new jsVectorMap({
         selector: '#world-map',
         map: 'world',
+        regionStyle: {
+          initial: { fill: '#d8cbaa' },
+          hover: { fill: '#c08a3e' },
+        },
       });
 
       // Sparkline charts
@@ -1434,7 +1621,7 @@
         yaxis: {
           min: 0,
         },
-        colors: ['#DCE6EC'],
+        colors: ['#5c6b4b'],
       };
 
       const sparkline1 = new ApexCharts(document.querySelector('#sparkline-1'), option_sparkline1);
@@ -1462,7 +1649,7 @@
         yaxis: {
           min: 0,
         },
-        colors: ['#DCE6EC'],
+        colors: ['#c08a3e'],
       };
 
       const sparkline2 = new ApexCharts(document.querySelector('#sparkline-2'), option_sparkline2);
@@ -1490,7 +1677,7 @@
         yaxis: {
           min: 0,
         },
-        colors: ['#DCE6EC'],
+        colors: ['#a8503f'],
       };
 
       const sparkline3 = new ApexCharts(document.querySelector('#sparkline-3'), option_sparkline3);
